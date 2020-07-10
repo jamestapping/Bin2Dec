@@ -15,6 +15,18 @@ class ViewController: UIViewController {
     
     @IBAction func press(_ sender: UIButton) {
         
+        //Animate the button
+        
+        UIButton.animate(withDuration: 0.2,
+        animations: {
+        sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
+        },
+        completion: { finish in
+        UIButton.animate(withDuration: 0.2, animations: {
+        sender.transform = CGAffineTransform.identity
+        })
+        })
+        
         let binaryAsString: String = binaryInput.text!
        
         // Check if more than 8 characters or 0 characters and isn't Binary number
@@ -23,8 +35,10 @@ class ViewController: UIViewController {
             
           // Update the UI
             
-            binaryInput.text = ""
-            result.text="0"
+            DispatchQueue.main.async {
+                self.binaryInput.text = ""
+                self.result.text="0"
+            }
             
             return
         }
