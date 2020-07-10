@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         
         if binaryAsString.count > 8 || binaryAsString.count == 0 || !isBinary(binaryNumber: binaryAsString){
             
-          // Update the UI
+          // Update the UI - clear input screen and set result to 0
             
             DispatchQueue.main.async {
                 self.binaryInput.text = ""
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             return
         }
         
-        // Update the UI
+        // Update the UI with the result and clear the input 
         
         DispatchQueue.main.async {
             self.result.text = self.bin2dec(binary: binaryAsString)
@@ -72,5 +72,5 @@ func isBinary(binaryNumber: String) -> Bool {
     
 }
 
-// test change 2
+
 
