@@ -18,13 +18,13 @@ class ViewController: UIViewController {
         //Animate the button
         
         UIButton.animate(withDuration: 0.2,
-        animations: {
-        sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
         },
-        completion: { finish in
-        UIButton.animate(withDuration: 0.2, animations: {
-        sender.transform = CGAffineTransform.identity
-        })
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.2, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
         })
         
         let binaryAsString: String = binaryInput.text!
@@ -45,8 +45,10 @@ class ViewController: UIViewController {
         
         // Update the UI
         
-        result.text = bin2dec(binary: binaryAsString)
-        binaryInput.text = ""
+        DispatchQueue.main.async {
+            self.result.text = self.bin2dec(binary: binaryAsString)
+            self.binaryInput.text = ""
+        }
             
 }
 
